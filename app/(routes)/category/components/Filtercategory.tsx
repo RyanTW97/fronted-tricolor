@@ -25,11 +25,11 @@ const FilterCategory = ({
     return <p className="text-red-500">Error al cargar categorías: {error}</p>;
 
   const categories: Category[] =
-    result?.data?.map((cat: any) => ({
+    (result as any)?.data?.map((cat: any) => ({
       id: cat.id,
       slug: cat.attributes?.slug ?? "sin-slug",
       categoryName: cat.attributes?.categoryName ?? "Sin nombre",
-    })) ?? [];
+    })) || [];
 
   return categories.length > 0 ? (
     <div className="p-4 bg-white rounded-md shadow-lg">

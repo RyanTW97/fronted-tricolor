@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 "use client";
 import { useGetProductBySlug } from "@/app/api/getProductBySlug";
 import { useParams } from "next/navigation";

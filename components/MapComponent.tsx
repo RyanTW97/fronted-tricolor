@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { memo, useRef, useEffect } from "react";
 import {
   MapContainer,

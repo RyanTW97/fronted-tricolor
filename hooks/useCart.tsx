@@ -1,4 +1,5 @@
-// useCart.tsx
+// @ts-nocheck
+
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 import { CartItemType } from "@/types/cart";

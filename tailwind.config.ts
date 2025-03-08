@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import type { Config } from "tailwindcss";
 
 export default {

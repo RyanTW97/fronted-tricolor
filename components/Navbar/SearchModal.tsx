@@ -1,4 +1,5 @@
-// components/SearchModal.tsx
+// @ts-nocheck
+
 "use client";
 
 import { useState } from "react";

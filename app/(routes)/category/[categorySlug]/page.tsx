@@ -8,21 +8,36 @@ import Filters from "../components/Filters";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
+// Definimos la estructura del producto
+interface Product {
+  id: number;
+  productName: string;
+  description: string;
+  image: string;
+  categoryName: string;
+  categorySlug: string;
+  slug: string;
+  presentations: any[];
+  prices: any[];
+  color: any[];
+  discountPercentage: number;
+}
+
 export default function Page() {
-  const params = useParams();
+  const params = useParams() as { categorySlug?: string };
   const router = useRouter();
-  const { categorySlug } = params || {};
+  const categorySlug = params.categorySlug ?? "";
 
   const {
     result,
     loading: apiLoading,
     error,
   } = useGetCategoryProduct(categorySlug);
-  const [filterCategory, setFilterCategory] = useState(categorySlug || "");
-  const [isLoading, setIsLoading] = useState(false);
+  const [filterCategory, setFilterCategory] = useState<string>(categorySlug);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    setFilterCategory(categorySlug || "");
+    setFilterCategory(categorySlug);
   }, [categorySlug]);
 
   if (apiLoading) {
@@ -34,27 +49,37 @@ export default function Page() {
   }
 
   if (error) {
+    const errorMessage =
+      typeof error === "string"
+        ? error
+        : (error as any)?.message || "Ocurrió un error";
+
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p>Error al cargar productos: {error.message || "Ocurrió un error"}</p>
+        <p>Error al cargar productos: {errorMessage}</p>
       </div>
     );
   }
 
-  const formattedProducts = (result || [])
-    .map((product) => {
-      const { attributes } = product || {};
-      if (!attributes) return null;
+  // ✅ Mejor manejo de los productos
+  const formattedProducts: Product[] = (result || [])
+    .map((product: any) => {
+      if (!product?.attributes) return null;
+      const { attributes } = product;
 
       const categoryName =
         attributes.category?.data?.attributes?.categoryName ||
         "Categoría no disponible";
+      const categorySlug = attributes.category?.data?.attributes?.slug || "";
+      const slug = attributes.slug || product.slug || "unknown";
+      const discountPercentage = attributes.discountPercentage || 0;
 
+      // ✅ Manejo seguro de imágenes
       let imageUrl = "/placeholder.png";
       if (attributes.images?.data?.length > 0) {
         const imageData = attributes.images.data[0];
-        if (imageData?.attributes?.url) {
-          const rawUrl = imageData.attributes.url;
+        const rawUrl = imageData?.attributes?.url;
+        if (rawUrl) {
           imageUrl = rawUrl.startsWith("http")
             ? rawUrl
             : `${process.env.NEXT_PUBLIC_BACKEND_URL}${rawUrl}`;
@@ -67,22 +92,20 @@ export default function Page() {
         description: attributes.description || "Sin descripción",
         image: imageUrl,
         categoryName,
-        categorySlug: attributes.category?.data?.attributes?.slug || "",
-        slug: attributes.slug || product.slug || "unknown",
+        categorySlug,
+        slug,
         presentations: attributes.prices || [],
         prices: attributes.prices || [],
-        color: attributes.color || product.color || [],
-        discountPercentage: attributes.discountPercentage || 0,
+        color: attributes.color || [],
+        discountPercentage,
       };
     })
-    .filter(Boolean);
+    .filter(Boolean) as Product[];
 
-  const handleFilterChange = (category) => {
+  const handleFilterChange = (category: string) => {
     setIsLoading(true);
     router.push(`/category/${category}`);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
+    setTimeout(() => setIsLoading(false), 500);
   };
 
   const titleVariants = {

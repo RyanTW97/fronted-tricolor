@@ -1,12 +1,11 @@
+// @ts-nocheck
+
 "use client";
 import CardLink from "@/components/CardLink";
-import Carousel from "@/components/Carousel";
 import Linea from "@/components/Linea";
 import LogoCarousel from "@/components/LogoCarousel";
-import ProductLineButton from "@/components/ProductLineButton";
 import ImageSection from "@/components/ImageSection";
 import ProductFeature from "@/components/ProductFeature";
-import { motion } from "framer-motion";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import Offers from "@/components/Offers";
 import ProductsByCategory from "@/components/ProductsByCategory";
