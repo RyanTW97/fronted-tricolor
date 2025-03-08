@@ -1,1 +1,5 @@
-{"node":{"40c24ac4a6ace26540e0e061c86c50334d8597539f":{"workers":{"app/(auth)/signin/page":{"moduleId":"90573","async":false},"app/(auth)/signup/page":{"moduleId":"90573","async":false}},"layer":{"app/(auth)/signin/page":"action-browser","app/(auth)/signup/page":"action-browser"}},"40e837b70dfcc8a0028d18adad34b85825bac66cc3":{"workers":{"app/(auth)/signin/page":{"moduleId":"90573","async":false},"app/(auth)/signup/page":{"moduleId":"90573","async":false}},"layer":{"app/(auth)/signin/page":"action-browser","app/(auth)/signup/page":"action-browser"}}},"edge":{},"encryptionKey":"XBL0zAOu+vZgddUKhiLWLBpc30kKwQEXmP+lcaffFkA="}
+{
+  "node": {},
+  "edge": {},
+  "encryptionKey": "XBL0zAOu+vZgddUKhiLWLBpc30kKwQEXmP+lcaffFkA="
+}
