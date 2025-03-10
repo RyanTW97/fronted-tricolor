@@ -182,7 +182,7 @@ const Offers = () => {
                     whileHover={{ scale: 1.1, zIndex: 50 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <Card className="py-4 border border-gray-200 shadow-lg p-5 min-h-[450px] flex flex-col justify-between relative">
+                    <Card className="py-4 border border-gray-200 shadow-lg p-5 h-[450px] flex flex-col justify-between">
                       {/* Agregamos el ícono de favoritos */}
                       <button
                         className="absolute top-2 right-2 p-1 rounded-full cursor-pointer shadow-md"

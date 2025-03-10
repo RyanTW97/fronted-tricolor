@@ -69,7 +69,13 @@ const Page = () => {
               {product.fichaTecnica?.data?.attributes?.url && (
                 <div className="mt-6">
                   <a
-                    href={`${process.env.NEXT_PUBLIC_BACKEND_URL}${product.fichaTecnica.data.attributes.url}`}
+                    href={
+                      product.fichaTecnica.data.attributes.url.startsWith(
+                        "http"
+                      )
+                        ? product.fichaTecnica.data.attributes.url
+                        : `${process.env.NEXT_PUBLIC_BACKEND_URL}${product.fichaTecnica.data.attributes.url}`
+                    }
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block w-full text-center bg-blue-800 text-white py-3 rounded-md shadow-lg hover:bg-blue-900 transition duration-300"

@@ -149,7 +149,7 @@ const FeaturedProducts = () => {
                   whileHover={{ scale: 1.1, zIndex: 50 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Card className="py-4 border border-gray-200 shadow-lg p-5 min-h-[450px] flex flex-col justify-between">
+                  <Card className="py-4 border border-gray-200 shadow-lg p-5 h-[450px] flex flex-col justify-between">
                     <div className="relative flex justify-center items-center rounded-lg overflow-hidden">
                       <Link href={`/product/${slug}`} passHref>
                         {imageUrl ? (
