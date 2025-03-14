@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Package, UserCircle } from "lucide-react"; // Íconos de lucide-react
+import React from "react";
 
 export default function DashboardLayout({
   children,

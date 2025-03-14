@@ -10,6 +10,7 @@ import Link from "next/link";
 import { toast } from "react-toastify";
 import { useCart } from "@/hooks/useCart";
 import { useFavorites } from "@/hooks/useFavorites";
+import React from "react";
 
 type PriceType = {
   precio: number;

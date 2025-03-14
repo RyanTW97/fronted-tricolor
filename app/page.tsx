@@ -10,6 +10,7 @@ import FeaturedProducts from "@/components/FeaturedProducts";
 import Offers from "@/components/Offers";
 import ProductsByCategory from "@/components/ProductsByCategory";
 import Carousel from "@/components/Carrusel/Carrusel";
+import React from "react";
 
 export default function Home() {
   return (

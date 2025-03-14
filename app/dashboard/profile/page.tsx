@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { provinces } from "@/utils/provinces";
 import { updateProfileAction } from "@/app/data/actions/profile-actions";
+import React from "react";
 
 const initialState = {
   nombre: "",

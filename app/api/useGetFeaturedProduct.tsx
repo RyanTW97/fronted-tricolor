@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import React from "react";
 
 export function useGetFeaturedProducts() {
   const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products?filters[isFeatured][$eq]=true&populate=*`;

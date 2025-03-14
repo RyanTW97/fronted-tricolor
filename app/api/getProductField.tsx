@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import React from "react";
 
 export function useGetProductField() {
   const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/categories`; // Cambiamos el endpoint al de categorías

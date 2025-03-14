@@ -3,6 +3,7 @@ import Linea from "@/components/Linea";
 import Image from "next/image";
 import { useCart } from "@/hooks/useCart";
 import { toast } from "react-toastify";
+import React from "react";
 
 interface ProductDetailsProps {
   product: any;

@@ -9,6 +9,7 @@ import { HeartCrack, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { toast } from "react-toastify";
+import React from "react";
 
 export default function FavoritesPage() {
   const { favorites, removeFavorite } = useFavorites();

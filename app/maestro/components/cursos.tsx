@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import React from "react";
 
 interface CursoProps {
   title: string;

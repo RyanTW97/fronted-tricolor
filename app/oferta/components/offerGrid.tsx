@@ -15,6 +15,7 @@ import Image from "next/image";
 import Linea from "@/components/Linea";
 import Link from "next/link";
 import { toast } from "react-toastify";
+import React from "react";
 
 const OffersGrid = () => {
   const { loading, result, error } = useGetOfferProducts();

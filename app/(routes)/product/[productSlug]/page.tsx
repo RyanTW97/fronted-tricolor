@@ -8,6 +8,7 @@ import SkeletonProduct from "../components/skeletonProduct";
 import { useState, useEffect } from "react";
 import ProductDetails from "../components/ProductDetails";
 import ImageGallery from "../components/ImageGallery";
+import React from "react";
 
 const Page = () => {
   const { productSlug } = useParams();

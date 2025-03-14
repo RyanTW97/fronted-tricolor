@@ -1,4 +1,5 @@
 import Filtercategory from "./Filtercategory";
+import React from "react";
 
 type FiltersProps = {
   setFilterCategory: (category: string) => void;

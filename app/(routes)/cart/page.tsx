@@ -4,6 +4,7 @@ import Linea from "@/components/Linea";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/hooks/useCart";
 import { ArrowDown, ArrowUp, Trash2 } from "lucide-react";
+import React from "react";
 
 export default function Page() {
   const { items, removeAll, removeItem, updateQuantity } = useCart();

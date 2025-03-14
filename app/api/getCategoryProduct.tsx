@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import React from "react";
 
 export function useGetCategoryProduct(slug: string | string[]) {
   const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products?populate=*&filters[category][slug][$eq]=${slug}`;
