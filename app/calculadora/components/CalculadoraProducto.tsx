@@ -1,5 +1,4 @@
 import { useState } from "react";
-import React from "react";
 
 // Lista de superficies con un único producto asignado
 const surfaces = [

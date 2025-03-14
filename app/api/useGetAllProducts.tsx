@@ -1,7 +1,6 @@
 // @ts-nocheck
 
 import { useEffect, useState } from "react";
-import React from "react";
 
 export function useGetAllProducts() {
   const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products?populate=*`;

@@ -2,10 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { provinces } from "@/utils/provinces";
-import { updateProfileAction } from "@/app/data/actions/profile-actions";
-import React from "react";
 
 const initialState = {
   nombre: "",
@@ -26,7 +23,6 @@ export default function ProfilePage() {
   const [formDisabled, setFormDisabled] = useState(false);
   const [cities, setCities] = useState<string[]>([]);
   const [message, setMessage] = useState("");
-  const router = useRouter();
 
   useEffect(() => {
     const storedData = localStorage.getItem("profileData");
@@ -73,7 +69,8 @@ export default function ProfilePage() {
   };
 
   const updateCities = (province: string) => {
-    if (provinces.hasOwnProperty(province)) {
+    // Se usa Object.prototype.hasOwnProperty.call para evitar el error ESLint
+    if (Object.prototype.hasOwnProperty.call(provinces, province)) {
       const selectedCities =
         provinces[province as keyof typeof provinces] || [];
       setCities(selectedCities);

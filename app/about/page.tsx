@@ -3,7 +3,6 @@
 import CardTextoIz from "@/app/about/components/cardtextiz";
 import CardTextoDe from "@/app/about/components/cardtextode";
 import Linea from "@/components/Linea";
-import React from "react";
 
 const About = () => {
   return (

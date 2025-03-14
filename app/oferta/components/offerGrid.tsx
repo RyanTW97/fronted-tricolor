@@ -1,5 +1,4 @@
 // @ts-nocheck
-
 "use client";
 
 import { useState } from "react";
@@ -9,39 +8,30 @@ import { ProductType } from "@/types/product";
 import { useCart } from "@/hooks/useCart";
 import { useFavorites } from "@/hooks/useFavorites";
 import { Card } from "@/components/ui/card";
-import { Heart, ShoppingCart } from "lucide-react";
+import { Heart } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Linea from "@/components/Linea";
 import Link from "next/link";
 import { toast } from "react-toastify";
-import React from "react";
 
 const OffersGrid = () => {
   const { loading, result, error } = useGetOfferProducts();
   const { addItem } = useCart();
   const { favorites, addFavorite, removeFavorite } = useFavorites();
-  const [selectedPresentations, setSelectedPresentations] = useState<{
-    [key: number]: string;
-  }>({});
+  const [selectedPresentations, setSelectedPresentations] = useState({});
 
-  const handlePresentationChange = (
-    productId: number,
-    presentation: string
-  ) => {
+  const handlePresentationChange = (productId, presentation) => {
     setSelectedPresentations((prev) => ({
       ...prev,
       [productId]: presentation,
     }));
   };
 
-  const handleAddToCart = (
-    product: ProductType,
-    selectedPresentation: string
-  ) => {
+  const handleAddToCart = (product, selectedPresentation) => {
     const { attributes } = product;
     const priceItem = attributes.prices.find(
-      (p: any) => p.presentacion === selectedPresentation
+      (p) => p.presentacion === selectedPresentation
     );
     const selectedPrice = priceItem?.precio || 0;
 
@@ -69,34 +59,32 @@ const OffersGrid = () => {
     toast.success(`${attributes.productName} añadido al carrito 🛒`);
   };
 
-  const handleFavoriteClick = (
-    product: ProductType,
-    event: React.MouseEvent
-  ) => {
+  const handleFavoriteClick = (product, event) => {
     event.stopPropagation();
     const isFavorite = favorites.some((item) => item.id === product.id);
-    isFavorite ? removeFavorite(product.id) : addFavorite(product);
+    if (isFavorite) {
+      removeFavorite(product.id);
+    } else {
+      addFavorite(product);
+    }
     toast[isFavorite ? "info" : "success"](
       `Producto ${isFavorite ? "removido" : "añadido"} de favoritos ❤️`
     );
   };
 
-  const getImageUrl = (images: any) => {
+  const getImageUrl = (images) => {
     const imageUrl = images?.data?.[0]?.attributes?.url;
-    return imageUrl
-      ? imageUrl.startsWith("http")
-        ? imageUrl
-        : `${process.env.NEXT_PUBLIC_BACKEND_URL}${imageUrl}`
-      : null;
+    if (!imageUrl) return null;
+    return imageUrl.startsWith("http")
+      ? imageUrl
+      : `${process.env.NEXT_PUBLIC_BACKEND_URL}${imageUrl}`;
   };
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  if (error) return <div>Error: {error}</div>;
 
   return (
-    <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-5">
+    <div className="p-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {loading && <SkeletonSchema grid={4} />}
         {Array.isArray(result) &&
           result.map((rawProduct: ProductType, index) => {
@@ -107,20 +95,19 @@ const OffersGrid = () => {
             const {
               productName,
               description,
-              prices,
+              prices = [],
               discountPercentage,
               slug,
               images,
             } = attributes;
 
             const uniqueKey = id || `product-${index}`;
-            const priceArray = prices || [];
             const selectedPresentation =
               selectedPresentations[id] ||
-              (priceArray.length > 0 ? priceArray[0].presentacion : undefined);
+              (prices.length > 0 ? prices[0].presentacion : undefined);
 
             const selectedPrice =
-              priceArray.find((p) => p.presentacion === selectedPresentation)
+              prices.find((p) => p.presentacion === selectedPresentation)
                 ?.precio || "No disponible";
 
             const priceAfterDiscount =
@@ -143,7 +130,6 @@ const OffersGrid = () => {
               >
                 <Card className="py-4 border border-gray-200 shadow-lg p-5 min-h-[450px] flex flex-col justify-between">
                   <div className="relative">
-                    {/* Botón de favoritos (fuera del Link para evitar navegación) */}
                     <div
                       className="absolute top-2 right-2 p-1 rounded-full bg-white shadow-md cursor-pointer z-10"
                       onClick={(event) =>
@@ -156,9 +142,7 @@ const OffersGrid = () => {
                         }
                       />
                     </div>
-
-                    {/* Imagen con enlace */}
-                    <Link href={`/product/${slug}`} passHref>
+                    <Link href={`/product/${slug}`}>
                       <div className="relative h-[200px] w-full flex justify-center items-center rounded-lg">
                         {imageUrl ? (
                           <Image
@@ -176,20 +160,17 @@ const OffersGrid = () => {
                       </div>
                     </Link>
                   </div>
-
                   <div className="space-y-4">
                     <h2 className="text-xl font-bold text-gray-800">
                       {productName}
                       <Linea />
                     </h2>
-
                     <p className="text-sm text-gray-600 line-clamp-2">
                       {description}
                     </p>
-
                     <div className="flex flex-wrap gap-2">
-                      <h1>Presentación: </h1>
-                      {priceArray.map((price, idx) => (
+                      <span>Presentación: </span>
+                      {prices.map((price, idx) => (
                         <button
                           key={`${uniqueKey}-${idx}`}
                           className={`py-1 px-3 rounded-lg text-sm ${
@@ -205,7 +186,6 @@ const OffersGrid = () => {
                         </button>
                       ))}
                     </div>
-
                     <div className="flex items-center justify-between">
                       {discountPercentage ? (
                         <>
@@ -222,7 +202,7 @@ const OffersGrid = () => {
                         </span>
                       )}
                       <button
-                        className="flex   bg-blue-800 text-white py-1 px-6 rounded-lg hover:bg-blue-600 transition"
+                        className="flex bg-blue-800 text-white py-1 px-6 rounded-lg hover:bg-blue-600 transition"
                         onClick={() =>
                           handleAddToCart(rawProduct, selectedPresentation)
                         }

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import React from "react";
 
 export function useGetProductBySlug(slug: string) {
   const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products?filters[slug][$eq]=${slug}&populate=*`;

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import React from "react";
 
 interface AboutProps {
   imageSrc: string;

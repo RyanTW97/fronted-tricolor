@@ -1,5 +1,4 @@
 import { CarouselImage } from "@/types/carouselImage";
-import React from "react";
 
 export async function fetchCarouselImages(): Promise<CarouselImage[]> {
   const res = await fetch(

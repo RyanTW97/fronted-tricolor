@@ -17,7 +17,6 @@ import Head from "next/head";
 import Image from "next/image";
 import Button from "@/components/button";
 import dynamic from "next/dynamic";
-import React from "react";
 
 // 📌 Importación dinámica de MapComponent con SSR desactivado
 const MapComponent = dynamic(() => import("@/components/MapComponent"), {

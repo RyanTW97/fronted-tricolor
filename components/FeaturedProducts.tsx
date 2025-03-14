@@ -1,7 +1,7 @@
 // @ts-nocheck
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useGetFeaturedProducts } from "@/app/api/useGetFeaturedProduct";
 import {
   Carousel,
@@ -25,77 +25,79 @@ const FeaturedProducts = () => {
   const { loading, result } = useGetFeaturedProducts();
   const { addItem } = useCart();
   const { favorites, addFavorite, removeFavorite } = useFavorites();
-  const [selectedPresentations, setSelectedPresentations] = useState<{
-    [key: number]: string;
-  }>({});
+  const [selectedPresentations, setSelectedPresentations] = useState({});
 
-  const handlePresentationChange = (
-    productId: number,
-    presentation: string
-  ) => {
+  const handlePresentationChange = useCallback((productId, presentation) => {
     setSelectedPresentations((prev) => ({
       ...prev,
       [productId]: presentation,
     }));
-  };
+  }, []);
 
-  const getImageUrl = (images: any) => {
+  const getImageUrl = useCallback((images) => {
     const imageUrl = images?.data?.[0]?.attributes?.url;
-    return imageUrl
-      ? imageUrl.startsWith("http")
-        ? imageUrl
-        : `${process.env.NEXT_PUBLIC_BACKEND_URL}${imageUrl}`
-      : null;
-  };
+    if (!imageUrl) return null;
+    return imageUrl.startsWith("http")
+      ? imageUrl
+      : `${process.env.NEXT_PUBLIC_BACKEND_URL}${imageUrl}`;
+  }, []);
 
-  const handleAddToCart = (
-    product: ProductType,
-    selectedPresentation: string
-  ) => {
-    try {
-      const { attributes } = product;
-      const priceItem = attributes.prices.find(
-        (p: any) => p.presentacion === selectedPresentation
+  const handleAddToCart = useCallback(
+    (product, selectedPresentation) => {
+      try {
+        const { attributes } = product;
+        const priceItem = attributes.prices.find(
+          (p) => p.presentacion === selectedPresentation
+        );
+        const selectedPrice = priceItem?.precio || 0;
+        if (!selectedPrice) {
+          toast.error("No se pudo añadir el producto al carrito");
+          return;
+        }
+        const discount = Number(attributes.discountPercentage) || 0;
+        const discountedPrice =
+          discount > 0 && typeof selectedPrice === "number"
+            ? selectedPrice - (selectedPrice * discount) / 100
+            : null;
+
+        addItem({
+          id: product.id,
+          productName: attributes.productName,
+          slug: attributes.slug,
+          description: attributes.description,
+          image: getImageUrl(attributes.images),
+          quantity: 1,
+          prices: [
+            { precio: selectedPrice, presentacion: selectedPresentation },
+          ],
+          discountPercentage: discount,
+          discountedPrice,
+        });
+
+        toast.success(`${attributes.productName} añadido al carrito 🛒`);
+      } catch (error) {
+        console.error("Error inesperado:", error);
+        toast.error("Ocurrió un error. Inténtalo nuevamente.");
+      }
+    },
+    [addItem, getImageUrl]
+  );
+
+  const handleFavoriteClick = useCallback(
+    (product, event) => {
+      event.stopPropagation();
+      const isFavorite = favorites.some((item) => item.id === product.id);
+      if (isFavorite) {
+        removeFavorite(product.id);
+      } else {
+        addFavorite(product);
+      }
+      toast[isFavorite ? "info" : "success"](
+        `Producto ${isFavorite ? "removido" : "añadido"} de favoritos ❤️`
       );
-      const selectedPrice = priceItem?.precio || 0;
-
-      if (!selectedPrice)
-        return toast.error("No se pudo añadir el producto al carrito");
-
-      const discount = Number(attributes.discountPercentage) || 0;
-      const discountedPrice =
-        discount > 0 ? selectedPrice - (selectedPrice * discount) / 100 : null;
-
-      addItem({
-        id: product.id,
-        productName: attributes.productName,
-        slug: attributes.slug,
-        description: attributes.description,
-        image: getImageUrl(attributes.images),
-        quantity: 1,
-        prices: [{ precio: selectedPrice, presentacion: selectedPresentation }],
-        discountPercentage: discount,
-        discountedPrice,
-      });
-
-      toast.success(`${attributes.productName} añadido al carrito 🛒`);
-    } catch (error) {
-      console.error("Error inesperado:", error);
-      toast.error("Ocurrió un error. Inténtalo nuevamente.");
-    }
-  };
-
-  const handleFavoriteClick = (
-    product: ProductType,
-    event: React.MouseEvent
-  ) => {
-    event.stopPropagation();
-    const isFavorite = favorites.some((item) => item.id === product.id);
-    isFavorite ? removeFavorite(product.id) : addFavorite(product);
-    toast[isFavorite ? "info" : "success"](
-      `Producto ${isFavorite ? "removido" : "añadido"} de favoritos ❤️`
-    );
-  };
+    },
+    [favorites, addFavorite, removeFavorite]
+  );
 
   return (
     <div>
@@ -111,23 +113,24 @@ const FeaturedProducts = () => {
       <Carousel className="carousel-container overflow-hidden relative">
         <CarouselContent className="overflow-visible relative -ml-2 md:ml-4">
           {loading && <SkeletonSchema grid={3} />}
-          {result?.map((product) => {
-            if (!product) return null;
+          {result?.map((product: ProductType) => {
+            if (!product?.attributes || !product.attributes.isFeatured)
+              return null;
+
             const { id, attributes } = product;
             const {
               productName,
               description,
-              prices,
-              slug,
+              prices = [],
               discountPercentage,
+              slug,
               images,
             } = attributes;
 
-            const priceArray = prices || [];
             const selectedPresentation =
-              selectedPresentations[id] || priceArray[0]?.presentacion;
+              selectedPresentations[id] || prices[0]?.presentacion;
             const selectedPrice =
-              priceArray.find((p) => p.presentacion === selectedPresentation)
+              prices.find((p) => p.presentacion === selectedPresentation)
                 ?.precio || "No disponible";
 
             const discount = Number(discountPercentage) || 0;
@@ -151,7 +154,7 @@ const FeaturedProducts = () => {
                 >
                   <Card className="py-4 border border-gray-200 shadow-lg p-5 h-[450px] flex flex-col justify-between">
                     <div className="relative flex justify-center items-center rounded-lg overflow-hidden">
-                      <Link href={`/product/${slug}`} passHref>
+                      <Link href={`/product/${slug}`}>
                         {imageUrl ? (
                           <Image
                             src={imageUrl}
@@ -187,8 +190,8 @@ const FeaturedProducts = () => {
                         {description}
                       </p>
                       <div className="flex flex-wrap gap-2">
-                        <div>Presentación:</div>
-                        {priceArray.map((price) => (
+                        <span>Presentación:</span>
+                        {prices.map((price) => (
                           <button
                             key={price.presentacion}
                             className={`py-1 px-3 rounded-lg text-sm ${

@@ -8,7 +8,6 @@ import { useCallback } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer"; // Importamos useInView
 import CursoCard from "./components/cursos"; // Asegúrate de importar correctamente
-import React from "react";
 
 const Maestro = () => {
   const cursos = [

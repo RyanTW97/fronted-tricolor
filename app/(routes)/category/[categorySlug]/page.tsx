@@ -7,7 +7,6 @@ import ProductCard from "../components/Productcard";
 import Filters from "../components/Filters";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import React from "react";
 
 // Definimos la estructura del producto
 interface Product {

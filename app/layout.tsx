@@ -8,7 +8,6 @@ import Footer from "@/components/footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Importa los estilos de Toastify
 import WhatsAppButton from "@/components/whatsappButton";
-import React from "react";
 
 // Fuentes locales
 const geistSans = localFont({

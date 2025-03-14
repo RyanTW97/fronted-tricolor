@@ -1,7 +1,6 @@
 "use client";
 import ProductLineButton from "@/components/ProductLineButton";
 import { motion } from "framer-motion";
-import React from "react";
 
 const Page = () => {
   return (
