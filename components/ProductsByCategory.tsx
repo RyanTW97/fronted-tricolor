@@ -192,18 +192,20 @@ const ProductsByCategory = ({
                   >
                     <Card className="py-6 px-4 border border-gray-200 shadow-lg w-96 h-[500px] flex flex-col">
                       <div className="relative w-full h-64">
-                        {imageUrl ? (
-                          <Image
-                            src={imageUrl}
-                            alt={productName || "Imagen destacada"}
-                            fill
-                            className="object-contain rounded-lg bg-white"
-                          />
-                        ) : (
-                          <p className="w-full h-full flex items-center justify-center bg-white text-gray-600 rounded-lg">
-                            Sin imagen disponible
-                          </p>
-                        )}
+                        <Link href={`/product/${slug}`}>
+                          {imageUrl ? (
+                            <Image
+                              src={imageUrl}
+                              alt={productName || "Imagen destacada"}
+                              fill
+                              className="object-contain rounded-lg bg-white"
+                            />
+                          ) : (
+                            <p className="w-full h-full flex items-center justify-center bg-white text-gray-600 rounded-lg">
+                              Sin imagen disponible
+                            </p>
+                          )}
+                        </Link>
                         <Heart
                           className={`absolute top-2 right-2 p-2 w-9 h-9 bg-white rounded-full cursor-pointer ${
                             isFavorite ? "text-red-500" : "text-gray-400"
@@ -236,9 +238,11 @@ const ProductsByCategory = ({
                         )}
                       </div>
                       <div className="flex flex-col flex-1 mt-4">
-                        <h2 className="text-xl font-bold text-blue-800">
-                          {productName}
-                        </h2>
+                        <Link href={`/product/${slug}`}>
+                          <h2 className="text-xl font-bold text-blue-800">
+                            {productName}
+                          </h2>
+                        </Link>
                         <p
                           className="mt-2 text-sm text-gray-600"
                           style={{
@@ -277,7 +281,7 @@ const ProductsByCategory = ({
                                             )
                                           }
                                           className={`px-2 py-1 rounded text-xs font-bold border ${
-                                            selectedIndex === idx
+                                            selectedPresentations[id] === idx
                                               ? "bg-blue-700 text-white"
                                               : "bg-gray-200 text-gray-800 hover:bg-gray-300"
                                           }`}

@@ -2995,6 +2995,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/components/ui/card.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/image.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/link.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$toastify$2f$dist$2f$react$2d$toastify$2e$esm$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/react-toastify/dist/react-toastify.esm.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$hooks$2f$useCart$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/hooks/useCart.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$hooks$2f$useFavorites$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/hooks/useFavorites.tsx [app-client] (ecmascript)");
@@ -3005,6 +3006,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 ;
 var _s = __turbopack_refresh__.signature();
 "use client";
+;
 ;
 ;
 ;
@@ -3172,29 +3174,36 @@ const ProductsByCategory = ({ categorySlug, title })=>{
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "relative w-full h-64",
                                                 children: [
-                                                    imageUrl ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                                        src: imageUrl,
-                                                        alt: productName || "Imagen destacada",
-                                                        fill: true,
-                                                        className: "object-contain rounded-lg bg-white"
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                        href: `/product/${slug}`,
+                                                        children: imageUrl ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                            src: imageUrl,
+                                                            alt: productName || "Imagen destacada",
+                                                            fill: true,
+                                                            className: "object-contain rounded-lg bg-white"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/ProductsByCategory.tsx",
+                                                            lineNumber: 197,
+                                                            columnNumber: 29
+                                                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "w-full h-full flex items-center justify-center bg-white text-gray-600 rounded-lg",
+                                                            children: "Sin imagen disponible"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/ProductsByCategory.tsx",
+                                                            lineNumber: 204,
+                                                            columnNumber: 29
+                                                        }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/ProductsByCategory.tsx",
-                                                        lineNumber: 196,
-                                                        columnNumber: 27
-                                                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "w-full h-full flex items-center justify-center bg-white text-gray-600 rounded-lg",
-                                                        children: "Sin imagen disponible"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/components/ProductsByCategory.tsx",
-                                                        lineNumber: 203,
-                                                        columnNumber: 27
+                                                        lineNumber: 195,
+                                                        columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$heart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Heart$3e$__["Heart"], {
                                                         className: `absolute top-2 right-2 p-2 w-9 h-9 bg-white rounded-full cursor-pointer ${isFavorite ? "text-red-500" : "text-gray-400"}`,
                                                         onClick: (event)=>handleFavoriteClick(product, event)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/ProductsByCategory.tsx",
-                                                        lineNumber: 207,
+                                                        lineNumber: 209,
                                                         columnNumber: 25
                                                     }, this),
                                                     isOffer && discount > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -3224,14 +3233,14 @@ const ProductsByCategory = ({ categorySlug, title })=>{
                                                             "%",
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                                                 fileName: "[project]/components/ProductsByCategory.tsx",
-                                                                lineNumber: 233,
+                                                                lineNumber: 235,
                                                                 columnNumber: 50
                                                             }, this),
                                                             "OFF"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/ProductsByCategory.tsx",
-                                                        lineNumber: 216,
+                                                        lineNumber: 218,
                                                         columnNumber: 27
                                                     }, this)
                                                 ]
@@ -3243,12 +3252,19 @@ const ProductsByCategory = ({ categorySlug, title })=>{
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "flex flex-col flex-1 mt-4",
                                                 children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                                        className: "text-xl font-bold text-blue-800",
-                                                        children: productName
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                                        href: `/product/${slug}`,
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                                            className: "text-xl font-bold text-blue-800",
+                                                            children: productName
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/ProductsByCategory.tsx",
+                                                            lineNumber: 242,
+                                                            columnNumber: 27
+                                                        }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/ProductsByCategory.tsx",
-                                                        lineNumber: 239,
+                                                        lineNumber: 241,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -3262,7 +3278,7 @@ const ProductsByCategory = ({ categorySlug, title })=>{
                                                         children: description
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/ProductsByCategory.tsx",
-                                                        lineNumber: 242,
+                                                        lineNumber: 246,
                                                         columnNumber: 25
                                                     }, this),
                                                     priceArray.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3275,7 +3291,7 @@ const ProductsByCategory = ({ categorySlug, title })=>{
                                                                     children: "Presentación:"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/ProductsByCategory.tsx",
-                                                                    lineNumber: 261,
+                                                                    lineNumber: 265,
                                                                     columnNumber: 33
                                                                 }, this),
                                                                 priceArray.length > 1 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3285,34 +3301,34 @@ const ProductsByCategory = ({ categorySlug, title })=>{
                                                                                         ...prev,
                                                                                         [id]: idx
                                                                                     })),
-                                                                            className: `px-2 py-1 rounded text-xs font-bold border ${selectedIndex === idx ? "bg-blue-700 text-white" : "bg-gray-200 text-gray-800 hover:bg-gray-300"}`,
+                                                                            className: `px-2 py-1 rounded text-xs font-bold border ${selectedPresentations[id] === idx ? "bg-blue-700 text-white" : "bg-gray-200 text-gray-800 hover:bg-gray-300"}`,
                                                                             children: p.presentacion
                                                                         }, p.presentacion, false, {
                                                                             fileName: "[project]/components/ProductsByCategory.tsx",
-                                                                            lineNumber: 269,
+                                                                            lineNumber: 273,
                                                                             columnNumber: 41
                                                                         }, this) : null)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/ProductsByCategory.tsx",
-                                                                    lineNumber: 265,
+                                                                    lineNumber: 269,
                                                                     columnNumber: 35
                                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                     className: "text-sm font-bold text-emerald-800",
                                                                     children: presentationText
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/ProductsByCategory.tsx",
-                                                                    lineNumber: 291,
+                                                                    lineNumber: 295,
                                                                     columnNumber: 35
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/ProductsByCategory.tsx",
-                                                            lineNumber: 260,
+                                                            lineNumber: 264,
                                                             columnNumber: 31
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/ProductsByCategory.tsx",
-                                                        lineNumber: 255,
+                                                        lineNumber: 259,
                                                         columnNumber: 27
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -3329,7 +3345,7 @@ const ProductsByCategory = ({ categorySlug, title })=>{
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/ProductsByCategory.tsx",
-                                                                        lineNumber: 305,
+                                                                        lineNumber: 309,
                                                                         columnNumber: 31
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -3340,13 +3356,13 @@ const ProductsByCategory = ({ categorySlug, title })=>{
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/components/ProductsByCategory.tsx",
-                                                                        lineNumber: 308,
+                                                                        lineNumber: 312,
                                                                         columnNumber: 31
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/ProductsByCategory.tsx",
-                                                                lineNumber: 304,
+                                                                lineNumber: 308,
                                                                 columnNumber: 29
                                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                 className: "text-lg font-semibold text-gray-800",
@@ -3356,7 +3372,7 @@ const ProductsByCategory = ({ categorySlug, title })=>{
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/components/ProductsByCategory.tsx",
-                                                                lineNumber: 313,
+                                                                lineNumber: 317,
                                                                 columnNumber: 29
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -3365,19 +3381,19 @@ const ProductsByCategory = ({ categorySlug, title })=>{
                                                                 children: "Añadir al carrito"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/ProductsByCategory.tsx",
-                                                                lineNumber: 320,
+                                                                lineNumber: 324,
                                                                 columnNumber: 27
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/components/ProductsByCategory.tsx",
-                                                        lineNumber: 300,
+                                                        lineNumber: 304,
                                                         columnNumber: 25
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/ProductsByCategory.tsx",
-                                                lineNumber: 238,
+                                                lineNumber: 240,
                                                 columnNumber: 23
                                             }, this)
                                         ]
@@ -3417,17 +3433,17 @@ const ProductsByCategory = ({ categorySlug, title })=>{
                                 d: "M15 19l-7-7 7-7"
                             }, void 0, false, {
                                 fileName: "[project]/components/ProductsByCategory.tsx",
-                                lineNumber: 345,
+                                lineNumber: 349,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/ProductsByCategory.tsx",
-                            lineNumber: 337,
+                            lineNumber: 341,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/ProductsByCategory.tsx",
-                        lineNumber: 336,
+                        lineNumber: 340,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$carousel$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CarouselNext"], {
@@ -3445,17 +3461,17 @@ const ProductsByCategory = ({ categorySlug, title })=>{
                                 d: "M9 5l7 7-7 7"
                             }, void 0, false, {
                                 fileName: "[project]/components/ProductsByCategory.tsx",
-                                lineNumber: 361,
+                                lineNumber: 365,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/ProductsByCategory.tsx",
-                            lineNumber: 353,
+                            lineNumber: 357,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/ProductsByCategory.tsx",
-                        lineNumber: 352,
+                        lineNumber: 356,
                         columnNumber: 11
                     }, this)
                 ]
@@ -3467,7 +3483,7 @@ const ProductsByCategory = ({ categorySlug, title })=>{
                 children: "No se encontraron productos en esta categoría."
             }, void 0, false, {
                 fileName: "[project]/components/ProductsByCategory.tsx",
-                lineNumber: 370,
+                lineNumber: 374,
                 columnNumber: 9
             }, this)
         ]
@@ -3513,11 +3529,12 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$slick$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/react-slick/lib/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/image.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Carrusel$2f$Carousel$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__ = __turbopack_import__("[project]/components/Carrusel/Carousel.module.css [app-client] (css module)"); // Importar estilos
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Carrusel$2f$Carousel$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__ = __turbopack_import__("[project]/components/Carrusel/Carousel.module.css [app-client] (css module)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/lib/api.ts [app-client] (ecmascript)"); // Importar la función optimizada
 ;
 var _s = __turbopack_refresh__.signature();
-"use client"; // Para Next.js 13+
+"use client";
+;
 ;
 ;
 ;
@@ -3527,16 +3544,14 @@ var _s = __turbopack_refresh__.signature();
 const Carousel = ()=>{
     _s();
     const [images, setImages] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
-    const API_URL = ("TURBOPACK compile-time value", "https://servidor-tricolor-64a23aa2b643.herokuapp.com");
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "Carousel.useEffect": ()=>{
-            const fetchImages = {
-                "Carousel.useEffect.fetchImages": async ()=>{
-                    try {
-                        const res = await fetch(`${API_URL}/api/carousel-images?populate=*`);
-                        const data = await res.json();
-                        const formattedImages = data.data.map({
-                            "Carousel.useEffect.fetchImages.formattedImages": (item)=>({
+            const getImages = {
+                "Carousel.useEffect.getImages": async ()=>{
+                    const data = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$api$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["fetchFromStrapi"])("carousel-images", "carousel-images");
+                    if (data) {
+                        const formattedImages = data.map({
+                            "Carousel.useEffect.getImages.formattedImages": (item)=>({
                                     id: item.id,
                                     name: item.attributes.Nombre,
                                     url: item.attributes.Imagen.data?.attributes?.url,
@@ -3544,18 +3559,14 @@ const Carousel = ()=>{
                                     height: item.attributes.Imagen.data?.attributes?.height,
                                     link: item.attributes.Link ? item.attributes.Link : "/"
                                 })
-                        }["Carousel.useEffect.fetchImages.formattedImages"]);
+                        }["Carousel.useEffect.getImages.formattedImages"]);
                         setImages(formattedImages);
-                    } catch (error) {
-                        console.error("Error fetching images:", error);
                     }
                 }
-            }["Carousel.useEffect.fetchImages"];
-            fetchImages();
+            }["Carousel.useEffect.getImages"];
+            getImages();
         }
-    }["Carousel.useEffect"], [
-        API_URL
-    ]);
+    }["Carousel.useEffect"], []);
     const settings = {
         dots: true,
         infinite: true,
@@ -3569,15 +3580,12 @@ const Carousel = ()=>{
         className: __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Carrusel$2f$Carousel$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].carouselContainer,
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$slick$2f$lib$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
             ...settings,
-            children: images.map((img)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            children: images.length > 0 ? images.map((img)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Carrusel$2f$Carousel$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].slide,
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
                         href: img.link,
                         target: "_blank",
                         rel: "noopener noreferrer",
-                        style: {
-                            display: "block"
-                        },
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                             src: img.url,
                             alt: img.name,
@@ -3586,27 +3594,33 @@ const Carousel = ()=>{
                             layout: "intrinsic"
                         }, void 0, false, {
                             fileName: "[project]/components/Carrusel/Carrusel.tsx",
-                            lineNumber: 60,
-                            columnNumber: 15
+                            lineNumber: 52,
+                            columnNumber: 17
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/Carrusel/Carrusel.tsx",
-                        lineNumber: 54,
-                        columnNumber: 13
+                        lineNumber: 51,
+                        columnNumber: 15
                     }, this)
                 }, img.id, false, {
                     fileName: "[project]/components/Carrusel/Carrusel.tsx",
-                    lineNumber: 53,
-                    columnNumber: 11
-                }, this))
+                    lineNumber: 50,
+                    columnNumber: 13
+                }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                children: "Cargando imágenes..."
+            }, void 0, false, {
+                fileName: "[project]/components/Carrusel/Carrusel.tsx",
+                lineNumber: 63,
+                columnNumber: 11
+            }, this)
         }, void 0, false, {
             fileName: "[project]/components/Carrusel/Carrusel.tsx",
-            lineNumber: 51,
+            lineNumber: 47,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/Carrusel/Carrusel.tsx",
-        lineNumber: 50,
+        lineNumber: 46,
         columnNumber: 5
     }, this);
 };

@@ -2280,6 +2280,22 @@ body {
   height: 100vh;
 }
 
+.h-48 {
+  height: 12rem;
+}
+
+.h-80 {
+  height: 20rem;
+}
+
+.h-3\/4 {
+  height: 75%;
+}
+
+.h-96 {
+  height: 24rem;
+}
+
 .max-h-60 {
   max-height: 15rem;
 }
@@ -3356,6 +3372,10 @@ body {
 
 .pt-\[70px\] {
   padding-top: 70px;
+}
+
+.pb-20 {
+  padding-bottom: 5rem;
 }
 
 .text-left {

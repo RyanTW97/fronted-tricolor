@@ -1,0 +1,3 @@
+{
+  "/(routes)/favorites/page": "app/(routes)/favorites/page.js"
+}

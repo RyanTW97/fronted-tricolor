@@ -1,6 +1,7 @@
+// @ts-nocheck
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 
 interface WallDimension {
   height: number | null;

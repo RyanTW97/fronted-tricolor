@@ -10,29 +10,27 @@ import { useInView } from "react-intersection-observer"; // Importamos useInView
 import CursoCard from "./components/cursos"; // Asegúrate de importar correctamente
 
 const Maestro = () => {
+  // Eliminamos el curso de Carpintería Básica
   const cursos = [
     {
-      title: "Curso de Resina Epóxica",
-      description: "Aprende a crear piezas únicas con resina epóxica.",
+      title: "Curso de Impermeabilización con Resina",
+      description:
+        "Aprende técnicas profesionales para la impermeabilización y el uso de resina en diferentes superficies.",
       contents: [
-        "Introducción a la resina epóxica.",
-        "Herramientas y materiales necesarios.",
-        "Técnicas básicas de mezcla y aplicación.",
-        "Proyectos prácticos para principiantes.",
+        "Acceso al curso en línea (3 días)",
+        "Curso en vivo con acompañamiento profesional",
+        "Certificado Físico (Dentro de Ecuador)",
+        "Certificado Digital (Resto del mundo)",
+        "Acceso al curso en tiempo real durante la transmisión",
+        "Coordinación y logística de entrega de materiales en Ecuador (próximamente en más países)",
+        "Posibilidad de adquirir paquete con materiales",
+        "Asesoría profesional en tiempo real",
+        "Asesoría y acompañamiento después del curso (por videollamada en cualquier parte del mundo)",
+        "Número de participantes: 1 persona",
+        "Incluye el Día 4 como bono",
+        "No incluye saldo consumible",
       ],
-      price: "$49.99",
-      buttonText: "Inscribirme",
-    },
-    {
-      title: "Curso de Carpintería Básica",
-      description: "Descubre cómo trabajar la madera de forma profesional.",
-      contents: [
-        "Conceptos básicos de carpintería.",
-        "Uso de herramientas manuales y eléctricas.",
-        "Técnicas de ensamblaje.",
-        "Construcción de un proyecto simple.",
-      ],
-      price: "$39.99",
+      price: "$150.00 (IVA incluido)",
       buttonText: "Inscribirme",
     },
   ];
@@ -108,7 +106,8 @@ const Maestro = () => {
   const words = ["Capacítate", "Maestro"];
 
   return (
-    <div className="relative flex flex-col items-center min-h-screen px-6">
+    // Se agregó pb-20 para aumentar el espacio inferior
+    <div className="relative flex flex-col items-center min-h-screen px-6 pb-20">
       {/* Fondo negro con partículas conectadas */}
       <Particles
         id="tsparticles"
@@ -168,7 +167,8 @@ const Maestro = () => {
       </motion.p>
 
       {/* Cursos animados */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 z-10">
+      {/** Ajustamos la clase para que el contenedor sea más amplio */}
+      <div className="grid grid-cols-1 gap-8 w-full max-w-4xl mx-auto z-10">
         {cursos.map((curso, index) => {
           const { ref, inView } = useInView({ triggerOnce: true });
           return (
@@ -183,7 +183,7 @@ const Maestro = () => {
                   opacity: 1,
                   y: 0,
                   transition: {
-                    delay: 2.5 + index * 0.2, // Retraso de 1 segundo después del subtítulo
+                    delay: 2.5 + index * 0.2, // Retraso tras el subtítulo
                     duration: 0.6,
                     type: "spring",
                   },

@@ -1,40 +1,36 @@
 // @ts-nocheck
-"use client"; // Para Next.js 13+
+"use client";
 
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
-import styles from "./Carousel.module.css"; // Importar estilos
+import styles from "./Carousel.module.css";
+import { fetchFromStrapi } from "@/lib/api"; // Importar la función optimizada
 
 const Carousel = () => {
   const [images, setImages] = useState([]);
-  const API_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const res = await fetch(`${API_URL}/api/carousel-images?populate=*`);
-        const data = await res.json();
+    const getImages = async () => {
+      const data = await fetchFromStrapi("carousel-images", "carousel-images");
 
-        const formattedImages = data.data.map((item) => ({
+      if (data) {
+        const formattedImages = data.map((item) => ({
           id: item.id,
           name: item.attributes.Nombre,
           url: item.attributes.Imagen.data?.attributes?.url,
-          width: item.attributes.Imagen.data?.attributes?.width, // Obtener ancho original
-          height: item.attributes.Imagen.data?.attributes?.height, // Obtener altura original
-          link: item.attributes.Link ? item.attributes.Link : "/", // Si Link es null, redirigir a home
+          width: item.attributes.Imagen.data?.attributes?.width,
+          height: item.attributes.Imagen.data?.attributes?.height,
+          link: item.attributes.Link ? item.attributes.Link : "/",
         }));
-
         setImages(formattedImages);
-      } catch (error) {
-        console.error("Error fetching images:", error);
       }
     };
 
-    fetchImages();
-  }, [API_URL]);
+    getImages();
+  }, []);
 
   const settings = {
     dots: true,
@@ -49,24 +45,23 @@ const Carousel = () => {
   return (
     <div className={styles.carouselContainer}>
       <Slider {...settings}>
-        {images.map((img) => (
-          <div key={img.id} className={styles.slide}>
-            <a
-              href={img.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ display: "block" }}
-            >
-              <Image
-                src={img.url}
-                alt={img.name}
-                width={img.width}
-                height={img.height}
-                layout="intrinsic"
-              />
-            </a>
-          </div>
-        ))}
+        {images.length > 0 ? (
+          images.map((img) => (
+            <div key={img.id} className={styles.slide}>
+              <a href={img.link} target="_blank" rel="noopener noreferrer">
+                <Image
+                  src={img.url}
+                  alt={img.name}
+                  width={img.width}
+                  height={img.height}
+                  layout="intrinsic"
+                />
+              </a>
+            </div>
+          ))
+        ) : (
+          <p>Cargando imágenes...</p>
+        )}
       </Slider>
     </div>
   );
