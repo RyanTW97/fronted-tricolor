@@ -1,5 +1,4 @@
 // @ts-nocheck
-
 "use client";
 import { useGetProductBySlug } from "@/app/api/getProductBySlug";
 import { useParams } from "next/navigation";
@@ -37,7 +36,11 @@ const Page = () => {
 
   if (!result?.length) return <SkeletonProduct />;
 
-  const product = result[0].attributes;
+  // Extraemos el objeto completo del producto (incluyendo id)
+  const productData = result[0];
+  const product = productData.attributes;
+  const productWithId = { ...product, id: productData.id };
+
   const processedImages =
     product.images?.data?.map((img: any) => ({
       url: img.attributes.url.startsWith("http")
@@ -87,7 +90,7 @@ const Page = () => {
             </div>
 
             <ProductDetails
-              product={product}
+              product={productWithId}
               colors={product.color || []}
               presentations={product.prices || []}
               selectedColor={selectedColor}

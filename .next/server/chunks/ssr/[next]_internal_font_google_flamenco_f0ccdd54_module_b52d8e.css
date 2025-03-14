@@ -1,0 +1,30 @@
+/* [next]/internal/font/google/flamenco_f0ccdd54.module.css [app-client] (css) */
+@font-face {
+  font-family: Flamenco;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/_next/static/media/neIIzCehqYguo67ssZWBFqwYUp31-s.p.a32a1089.woff2") format("woff2");
+  unicode-range: U+??, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: Flamenco Fallback;
+  src: local(Arial);
+  ascent-override: 90.29%;
+  descent-override: 26.07%;
+  line-gap-override: 0.0%;
+  size-adjust: 88.6%;
+}
+
+.flamenco_f0ccdd54-module__LH_8eG__className {
+  font-family: Flamenco, Flamenco Fallback;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.flamenco_f0ccdd54-module__LH_8eG__variable {
+  --font-flamenco: "Flamenco", "Flamenco Fallback";
+}
+
+/*# sourceMappingURL=%5Bnext%5D_internal_font_google_flamenco_f0ccdd54_module_b52d8e.css.map*/

@@ -125,7 +125,7 @@ const ProductDetails = ({
 
         <p
           className="text-lg text-gray-700 mt-6"
-          style={{ whiteSpace: "pre-line" }}
+          style={{ whiteSpace: "pre-line", textAlign: "justify" }}
         >
           {description}
         </p>

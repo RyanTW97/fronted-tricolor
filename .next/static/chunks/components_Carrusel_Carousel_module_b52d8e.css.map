@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack://[project]/components/Carrusel/Carousel.module.css"],"sourcesContent":[".carouselContainer {\n  width: 100vw;\n  overflow: hidden;\n}\n\n.slide {\n  width: 100vw;\n  display: flex;\n  justify-content: center;\n}\n\n/* Aumentar la altura en dispositivos pequeños */\n@media screen and (max-width: 768px) {\n  .slide {\n    height: 50vh; /* Ajusta la altura a la mitad de la pantalla */\n    align-items: center;\n  }\n\n  .slide img {\n    object-fit: cover;\n    height: 100% !important;\n    width: auto !important;\n  }\n}\n\n@media screen and (max-width: 480px) {\n  .slide {\n    height: 18vh; /* Mayor altura en móviles más pequeños */\n  }\n}\n"],"names":[],"mappings":"AAAA;;;;;AAKA;;;;;;AAOA;EACE;;;;;EAKA;;;;;;;AAOF;EACE"}},
+    {"offset": {"line": 30, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}
