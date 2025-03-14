@@ -9,12 +9,12 @@ import ProductFeature from "@/components/ProductFeature";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import Offers from "@/components/Offers";
 import ProductsByCategory from "@/components/ProductsByCategory";
-import PublicidadVideo from "@/components/PublicidadVideo";
+import Carousel from "@/components/Carrusel/Carrusel";
 
 export default function Home() {
   return (
     <main>
-      <PublicidadVideo src="/FIBRASEAL.mp4" />
+      <Carousel />
       <FeaturedProducts />
       <Linea />
       <Offers />

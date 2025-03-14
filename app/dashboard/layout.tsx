@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Package, UserCircle } from "lucide-react"; // Íconos de lucide-react
-import LogoutButton from "@/components/custom/LogoutButton"; // Asegúrate de que esté correctamente importado
 
 export default function DashboardLayout({
   children,
@@ -42,9 +41,7 @@ export default function DashboardLayout({
               </Link>
 
               {/* Botón de cerrar sesión (ahora debajo del perfil) */}
-              <div className="mt-4 border-t pt-4">
-                <LogoutButton />
-              </div>
+              <div className="mt-4 border-t pt-4"></div>
             </nav>
           </div>
         </div>

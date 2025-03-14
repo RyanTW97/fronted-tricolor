@@ -4,7 +4,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar/navbar";
 import Footer from "@/components/footer";
-import { UserProvider } from "@/app/context/user-context"; // Importar UserProvider
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Importa los estilos de Toastify
@@ -52,31 +51,29 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} ${flamenco.variable} antialiased`}
       >
-        <UserProvider>
-          {" "}
-          {/* Envuelve todo en UserProvider */}
-          {/* Navbar siempre visible */}
-          <Navbar />
-          <main className="flex-grow pt-[70px] lg:pt-[170px] bg-gray-100">
-            {children}
-          </main>
-          <WhatsAppButton />
-          {/* Footer */}
-          <Footer />
-          {/* ToastContainer para manejar las notificaciones */}
-          <ToastContainer
-            position="bottom-right" // Posición de las notificaciones
-            autoClose={3000} // Tiempo de cierre automático (en milisegundos)
-            hideProgressBar={false} // Mostrar barra de progreso
-            newestOnTop={false} // No colocar las notificaciones nuevas al principio
-            closeOnClick // Cierra al hacer clic
-            rtl={false} // Soporte para texto de derecha a izquierda
-            pauseOnFocusLoss // Pausar si se pierde el foco
-            draggable // Permitir arrastrar las notificaciones
-            pauseOnHover // Pausar si se pasa el ratón por encima
-            theme="light" // Tema de las notificaciones (light, dark, colored)
-          />
-        </UserProvider>
+        {" "}
+        {/* Envuelve todo en UserProvider */}
+        {/* Navbar siempre visible */}
+        <Navbar />
+        <main className="flex-grow pt-[70px] lg:pt-[170px] bg-gray-100">
+          {children}
+        </main>
+        <WhatsAppButton />
+        {/* Footer */}
+        <Footer />
+        {/* ToastContainer para manejar las notificaciones */}
+        <ToastContainer
+          position="bottom-right" // Posición de las notificaciones
+          autoClose={3000} // Tiempo de cierre automático (en milisegundos)
+          hideProgressBar={false} // Mostrar barra de progreso
+          newestOnTop={false} // No colocar las notificaciones nuevas al principio
+          closeOnClick // Cierra al hacer clic
+          rtl={false} // Soporte para texto de derecha a izquierda
+          pauseOnFocusLoss // Pausar si se pierde el foco
+          draggable // Permitir arrastrar las notificaciones
+          pauseOnHover // Pausar si se pasa el ratón por encima
+          theme="light" // Tema de las notificaciones (light, dark, colored)
+        />
       </body>
     </html>
   );

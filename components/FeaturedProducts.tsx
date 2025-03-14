@@ -100,7 +100,7 @@ const FeaturedProducts = () => {
   return (
     <div>
       <motion.h1
-        className="text-xl md:text-4xl xl:text-6xl lg:text-5xl font-bold cormorant text-center my-8 text-blue-700"
+        className="text-3xl md:text-4xl xl:text-6xl lg:text-5xl font-bold cormorant text-center my-8 text-blue-700"
         initial={{ x: -200, scale: 0.5, opacity: 0 }}
         animate={{ x: 0, scale: 1, opacity: 1 }}
         transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -108,7 +108,7 @@ const FeaturedProducts = () => {
         Productos Destacados
       </motion.h1>
 
-      <Carousel className="carousel-container overflow-visible relative">
+      <Carousel className="carousel-container overflow-hidden relative">
         <CarouselContent className="overflow-visible relative -ml-2 md:ml-4">
           {loading && <SkeletonSchema grid={3} />}
           {result?.map((product) => {
@@ -235,8 +235,8 @@ const FeaturedProducts = () => {
             );
           })}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10" />
+        <CarouselNext className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10" />
       </Carousel>
     </div>
   );

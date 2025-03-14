@@ -123,7 +123,12 @@ const ProductDetails = ({
           </motion.div>
         )}
 
-        <p className="text-lg text-gray-700 mt-6">{description}</p>
+        <p
+          className="text-lg text-gray-700 mt-6"
+          style={{ whiteSpace: "pre-line" }}
+        >
+          {description}
+        </p>
       </div>
 
       {/* Selección de colores con grilla */}
@@ -132,7 +137,7 @@ const ProductDetails = ({
           <h3 className="text-lg font-semibold text-blue-800 mb-4">
             Colores Disponibles:
           </h3>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-4 mb-10">
             {colors.map((colorItem, index) => (
               <div
                 key={index}
@@ -159,6 +164,11 @@ const ProductDetails = ({
               </div>
             ))}
           </div>
+          <h1 className="text-gray-500  text-sm">
+            <span className="text-gray-800">Nota:</span> Los colores mostrados
+            son referenciales y pueden presentar variaciones en la versión
+            original.
+          </h1>
         </div>
       )}
 

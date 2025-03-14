@@ -1,0 +1,30 @@
+.carouselContainer {
+  width: 100vw;
+  overflow: hidden;
+}
+
+.slide {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+/* Aumentar la altura en dispositivos pequeños */
+@media screen and (max-width: 768px) {
+  .slide {
+    height: 50vh; /* Ajusta la altura a la mitad de la pantalla */
+    align-items: center;
+  }
+
+  .slide img {
+    object-fit: cover;
+    height: 100% !important;
+    width: auto !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .slide {
+    height: 18vh; /* Mayor altura en móviles más pequeños */
+  }
+}
