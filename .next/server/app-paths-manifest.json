@@ -1,17 +1,19 @@
 {
-  "/page": "app/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/(auth)/signin/page": "app/(auth)/signin/page.js",
   "/(routes)/category/[categorySlug]/page": "app/(routes)/category/[categorySlug]/page.js",
-  "/(routes)/product/[productSlug]/page": "app/(routes)/product/[productSlug]/page.js",
   "/(routes)/cart/page": "app/(routes)/cart/page.js",
   "/(routes)/category/page": "app/(routes)/category/page.js",
   "/(routes)/pintura/page": "app/(routes)/pintura/page.js",
-  "/calculadora/page": "app/calculadora/page.js",
   "/about/page": "app/about/page.js",
+  "/(routes)/product/[productSlug]/page": "app/(routes)/product/[productSlug]/page.js",
+  "/(routes)/favorites/page": "app/(routes)/favorites/page.js",
   "/contact/page": "app/contact/page.js",
+  "/calculadora/page": "app/calculadora/page.js",
   "/maestro/page": "app/maestro/page.js",
-  "/_not-found/page": "app/_not-found/page.js",
   "/oferta/page": "app/oferta/page.js",
-  "/(routes)/favorites/page": "app/(routes)/favorites/page.js"
+  "/page": "app/page.js",
+  "/(auth)/signin/page": "app/(auth)/signin/page.js",
+  "/dashboard/orders/page": "app/dashboard/orders/page.js",
+  "/dashboard/profile/page": "app/dashboard/profile/page.js"
 }

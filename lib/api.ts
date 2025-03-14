@@ -7,11 +7,13 @@ export const fetchFromStrapi = async (key: string, endpoint: string) => {
   }
 
   try {
-    // Revisar si hay datos en caché
-    const cachedData = localStorage.getItem(key);
-    if (cachedData) {
-      console.log(`📌 Usando caché para: ${endpoint}`);
-      return JSON.parse(cachedData);
+    // Verificar si estamos en el navegador antes de acceder a localStorage
+    if (typeof window !== "undefined") {
+      const cachedData = localStorage.getItem(key);
+      if (cachedData) {
+        console.log(`📌 Usando caché para: ${endpoint}`);
+        return JSON.parse(cachedData);
+      }
     }
 
     // Hacer la petición a Strapi
@@ -21,10 +23,19 @@ export const fetchFromStrapi = async (key: string, endpoint: string) => {
     }
 
     const data = await res.json();
-    localStorage.setItem(key, JSON.stringify(data.data)); // Guardar en caché
+
+    // Guardar en caché solo en el navegador
+    if (typeof window !== "undefined") {
+      localStorage.setItem(key, JSON.stringify(data.data));
+    }
+
     return data.data;
   } catch (error) {
-    console.error(`Error en fetchFromStrapi: ${error.message}`);
+    if (error instanceof Error) {
+      console.error(`Error en fetchFromStrapi: ${error.message}`);
+    } else {
+      console.error(`Error desconocido en fetchFromStrapi: ${String(error)}`);
+    }
     return null;
   }
 };

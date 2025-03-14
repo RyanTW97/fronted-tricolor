@@ -1,1 +1,48 @@
-{}
+{
+  "app/(routes)/pintura/page.tsx -> @/components/ProductLineButton": {
+    "id": 5655,
+    "files": [
+      "static/chunks/5565-9ccc1cff8befec96.js",
+      "static/chunks/4839-0a638340bbcb973b.js",
+      "static/chunks/5655.a5e55f611fde6540.js"
+    ]
+  },
+  "app/calculadora/page.tsx -> @/app/calculadora/components/CalculadoraPintura": {
+    "id": 3628,
+    "files": [
+      "static/chunks/3628.740c225c2d808ce7.js"
+    ]
+  },
+  "app/calculadora/page.tsx -> @/app/calculadora/components/CalculadoraProducto": {
+    "id": 2349,
+    "files": [
+      "static/chunks/2349.67ec4ffbe91ccbbf.js"
+    ]
+  },
+  "app/contact/page.tsx -> @/components/MapComponent": {
+    "id": 8213,
+    "files": [
+      "static/css/2fe54761db97812b.css",
+      "static/chunks/d0deef33.84a0ce786aefbddf.js",
+      "static/chunks/8213.a6d98932a3b3fa41.js"
+    ]
+  },
+  "app/oferta/page.tsx -> ./components/offerBanner": {
+    "id": 9980,
+    "files": [
+      "static/chunks/2983-23afa8bdce276c8b.js",
+      "static/chunks/9980.132432a14ea534f7.js"
+    ]
+  },
+  "app/oferta/page.tsx -> ./components/offerGrid": {
+    "id": 4898,
+    "files": [
+      "static/chunks/5565-9ccc1cff8befec96.js",
+      "static/chunks/2983-23afa8bdce276c8b.js",
+      "static/chunks/4839-0a638340bbcb973b.js",
+      "static/chunks/1181-f727aa699cd3f164.js",
+      "static/chunks/8275-39ddf542596c544c.js",
+      "static/chunks/4898.7c6b42f9353f3d91.js"
+    ]
+  }
+}

@@ -1,3 +1,0 @@
-{
-  "/(routes)/category/[categorySlug]/page": "app/(routes)/category/[categorySlug]/page.js"
-}
